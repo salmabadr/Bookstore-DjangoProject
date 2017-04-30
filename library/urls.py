@@ -1,0 +1,28 @@
+from django.conf.urls import url
+from . import views
+urlpatterns = [
+    # url(r'^index', views.index),
+    url(r'^login', views.log_into),
+    url(r'^checklog', views.log_check),
+    url(r'^reg', views.reg_into),
+    url(r'^checkreg', views.reg_check),
+    url(r'^homepage', views.go_to_homepage),
+    url(r'^showbooks', views.show_books),
+    url(r'^booksinfo/([0-9]+)', views.get_book_info),
+    url(r'^save/([0-9]+)', views.save_bookinfo),
+    # url(r'^book/([0-9]+)', views.getbook),
+    url(r'^categories', views.view_categories),
+    url(r'^showcatbooks/([0-9]+)', views.showcatbooks),
+    url(r'^addtofav/([0-9]+)', views.addtofav),
+    url(r'^removefav/([0-9]+)', views.removefav),
+    url(r'^authors', views.listauthors),
+    url(r'^showauthbooks/([0-9]+)', views.showauthbooks),
+    url(r'^follow/([0-9]+)', views.follow),
+    url(r'^unfollow/([0-9]+)', views.unfollow),
+    # url(r'^bookdetails/', views.get_book_info),
+    # url(r'^favcat', views.get_last_fav_cat),
+    # url(r'^home', views.home),
+    # url(r'^home',views.show_authors),
+    # url(r'^authdetails/([0-9]+)',views.author_details),
+    # url(r'^bookdetails/([0-9]+)',views.book_details),
+]

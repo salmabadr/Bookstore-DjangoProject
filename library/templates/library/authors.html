@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head><header>{% include "library/header.html" with nbar='authors'%}</header>
+<body>
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+<div class="container">
+<div class="list-group">
+{% for auth in following %}
+    <li class="list-group-item"><a class="btn" href="/library/showauthbooks/{{ auth.id }}">{{ auth.name }}</a>
+        <a href="/library/unfollow/{{ auth.id }}">Unfollow</a>
+    </li>
+{% endfor %}
+{% for auth in notfollowing %}
+    <li class="list-group-item"><a class="btn" href="/library/showauthbooks/{{ auth.id }}">{{ auth.name }}</a>
+        <a href="/library/follow/{{ auth.id }}">Follow</a>
+    </li>
+{% endfor %}
+</div>
+</div>
+</body>
+</html>

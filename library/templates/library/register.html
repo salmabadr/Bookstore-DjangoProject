@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+<div></div>
+<div class="container container-table">
+    <div class="row vertical-center-row">
+        <div class="text-center">
+
+            <form action="/library/checkreg" method="POST"> {% csrf_token %}
+            {{ form.as_p }}
+            {% buttons %}
+            <button type="submit" class="btn btn-primary"> Sign up </button>
+            {% endbuttons %}
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

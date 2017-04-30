@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<header>{% include "library/header.html"%}</header>
+<body>
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+{#<img src="{{ book.img }}">#}
+<div class="pull-right">
+
+<h2>{{ book.title }}</h2>
+<p>Published At: {{ book.publishedAt }}</p>
+<p>By: {{ book.writer }}</p>
+<p>Origin: {{ book.country }}</p>
+<p>Category: {{ book.category }}</p>
+Summary: <p>{{ book.summary }}</p>
+
+<form method="POST" action="/library/save/{{ book.id }}"> {% csrf_token %}
+<span>{{ book.avgrating }}</span>
+
+<span class="glyphicon glyphicon-star"></span>
+
+<div class="col-xs-2">
+<input name="in" class="form-control" type="text" value="{% if book.rating == 0 %} ' ' {% else %} {{ book.rating }} {% endif %} ">
+</div>
+
+{#    {% mkrange 1 book.rate 1 as range %}#}
+{#    {% for i in range %}#}
+{#    #}
+{#    {% endfor %}#}
+
+
+ <div class="form-group">
+  <select class="form-control" name="sel" id="sel1">
+    <option {% if book.status == "reading" %} selected="selected" {% endif %} value="reading">Reading</option>
+    <option {% if book.status == "read" %} selected="selected" {% endif %} value="read">Read</option>
+    <option {% if book.status == "wish" %} selected="selected" {% endif %} value="wish">Add to wishlist</option>
+    <option {% if book.status == "" %} selected="selected" {% endif %} value=""></option>
+  </select>
+</div>
+<button type="submit" class="btn btn-primary">Save</button>
+</form>
+{#    <img src="#">#}
+</div>
+</body>
+</html>

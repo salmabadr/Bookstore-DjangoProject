@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Online Bookstore</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="{% if nbar == 'homepage' %} active {% endif %}"><a href="/library/homepage">Home</a></li>
+      <li class="{% if nbar == 'category' %} active {% endif %}"><a href="/library/categories">Categories</a></li>
+      <li class="{% if nbar == 'authors' %} active {% endif %}"><a href="/library/authors">Authors</a></li>
+      <li class="{% if nbar == 'books' %} active {% endif %}"><a href="/library/showbooks">My Books</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+      <li><a href="#">Logout</a></li> </ul>
+
+  </div>
+</nav>
+
+
+</html>
